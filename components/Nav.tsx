@@ -15,18 +15,18 @@ const Nav = async () => {
 
 
           {session?.user.role == "ADMIN" && (
-            <Link href="/CreateUser">Create User</Link>
+            <Link href="/CreateUser">Dodaj Korisnika</Link>
           )}
           <Link href="/todo">Podsjetnik</Link>
-          
+
           {session ? (
             <>
               <p>{session.user.name}</p>
-              <p>{session.user.email}</p>
-              <Link href="/api/auth/signout?callbackUrl=/">Logout</Link>
+              {/* <p>{session.user.email}</p> */}
+              <Link href="/api/auth/signout?callbackUrl=/">Odjavi se</Link>
             </>
           ) : (
-            <Link href="/api/auth/signin">Login</Link>
+            <Link href="/api/auth/signin">Prijavi se </Link>
           )}
         </div>
       </nav>
