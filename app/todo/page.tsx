@@ -19,6 +19,7 @@ type Todo = {
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import LoadingDots from '@/components/loading-dots';
+import { useSession } from "next-auth/react";
 
 export default function TodoTable() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -28,11 +29,11 @@ export default function TodoTable() {
   const { user, setUser } = useGlobalContext();
   const [filter, setFilter] = useState('');
   const [isPending, startTransition] = useTransition();
-
+  const { data: session } = useSession();
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-
+const korisnik=session?.user.name;
   useEffect(() => {
     startTransition(() => {
       fetch('/api/todo')
@@ -57,8 +58,11 @@ export default function TodoTable() {
     showToast('Napomena je uspešno izmjenjena!');
   };
 
+  // const filteredTodos = todos.filter(todo =>
+  //   todo.title.toLowerCase().includes(filter.toLowerCase())
+  // );
   const filteredTodos = todos.filter(todo =>
-    todo.title.toLowerCase().includes(filter.toLowerCase())
+    todo.korisnik.toLowerCase().includes((korisnik ?? '').toLowerCase())
   );
 
   // Pagination logic
@@ -66,7 +70,7 @@ export default function TodoTable() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentTodos = filteredTodos.slice(startIndex, startIndex + itemsPerPage);
 
-  const brojZapisa = todos.length;
+  const brojZapisa = filteredTodos.length;
   const brojKompletiranih = todos.filter(todo => todo.done).length;
   const procenatKompletiranih = brojZapisa === 0 ? 0 : Math.round((brojKompletiranih / brojZapisa) * 100);
 
