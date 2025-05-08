@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input";
 export default function UpdatePage({ params }: { params: Promise<{ id: string }> }) {
     const [id, setId] = useState<string | null>(null);
     const [title, setTitle] = useState('');
-    const [korisnik, setKorisnik] = useState('');
+
     const [details, seDetails] = useState('');
     const [priority, setPriority] = useState(1);
     const [done, setDone] = useState(false);
@@ -46,7 +46,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
                 const data = await response.json();
                 setTitle(data.title);
                 seDetails(data.details);
-                setKorisnik(data.korisnik);
+
                 setPriority(data.priority);
                 setDone(data.done);
             } catch (err) {
@@ -69,7 +69,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
         setSuccess('');
 
         // Validate form data using Zod
-        const result = TodoSchema.safeParse({ title, priority,korisnik, details });
+        const result = TodoSchema.safeParse({ title, priority, details });
 
         if (!result.success) {
             // Map errors to display them
@@ -84,7 +84,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ title, priority,korisnik, details, done }),
+                body: JSON.stringify({ title, priority, details, done }),
             });
 
             if (response.ok) {
@@ -134,7 +134,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
 
                     />
                 </div>
-                <div className="mb-4">
+                {/* <div className="mb-4">
                     <label htmlFor="korisnik" className="block text-sm font-medium text-gray-700">Korisnik:</label>
                     <Input
                         type="text"
@@ -146,7 +146,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
                         placeholder="Unesite Korisnika"
 
                     />
-                </div>
+                </div> */}
 
                 <div className="mb-4">
                     <label htmlFor="priority" className="block text-sm font-medium text-gray-700">Prioritet:</label>

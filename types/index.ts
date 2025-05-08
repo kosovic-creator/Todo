@@ -1,16 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { z } from "zod";
-const TodoSchema = z.object({
-    title: z.string().min(3, "Title mora imati najmanje 3 karaktera"),
-    priority: z.number().positive("Godine moraju biti pozitivan broj"),
-    korisnik: z.string().min(3, "Korisnik mora imati najmanje 3 karaktera"),
-    details: z.string().min(3, "Detail mora imati najmanje 3 karaktera"),
-    // email: z.string().email("Neispravan format email adrese"),
-    });
-    type todo = z.infer<typeof TodoSchema>;
-  export default TodoSchema;
+import { z } from 'zod';
 
+const TodoSchema = z.object({
+  title: z.string().min(1, 'Naslov je obavezan'),
+  priority: z.number().min(1).max(5, 'Prioritet mora biti između 1 i 5'),
+  details: z.string().min(5, 'Detalji moraju imati najmanje 5 karaktera'),
+  korisnik: z.string().min(1, 'Korisnik je obavezan'),
+});
+
+export default TodoSchema;
 
 type Todo = {
   id: string;

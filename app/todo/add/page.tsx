@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
-
+import { useSession } from "next-auth/react";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -17,7 +17,7 @@ export default function AddTodoForm() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const router = useRouter();
-
+  const { data: session } = useSession();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ export default function AddTodoForm() {
     setSuccess('');
 
     // Validate form data using Zod
-    const result = TodoSchema.safeParse({ title, priority, details });
+    const result = TodoSchema.safeParse({ title, priority, details, korisnik });
 
     if (!result.success) {
       // Map errors to display them
@@ -82,27 +82,17 @@ export default function AddTodoForm() {
           id="priority"
           type="number"
           value={priority}
-          onChange={(e) => setPriority(Number(e.target.value))}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setPriority(Number(e.target.value));
+            setKorisnik(session?.user.name || '');
+          }}
           className="border rounded p-2 w-full"
           placeholder="Unesite prioritet (1-5)"
           min={1}
           max={5}
-
         />
       </div>
-      <div>
-        <label htmlFor="korisnik" className="block font-medium">Korisnik</label>
-        <Input
-          id="korisnik"
-          type="text"
-          value={priority}
-          onChange={(e) => setKorisnik((e.target.value))}
-          className="border rounded p-2 w-full"
-          placeholder="Unesite Korisnika"
-
-
-        />
-      </div>
+      
 
       <div>
         <label htmlFor="details" className="block font-medium">Detalji</label>
@@ -119,11 +109,16 @@ export default function AddTodoForm() {
         />
       </div>
 
+
       <Button
         type="submit"
-        className="w-full bg-black text-white py-2 rounded-md hover:bg-black-700">
+        className="w-full bg-black text-white py-2 rounded-md hover:bg-black-700"
+      // onClick={()=>setKorisnik(session?.user.name || '')}
+      >
         Dodaj Napomenu
       </Button>
+      <Button type="button" onClick={() => setKorisnik(session?.user.name || '')}>Korisnik</Button>
+      <p>{korisnik}</p>
       {error && <p className="text-red-500">{error}</p>}
       {success && <p className="text-green-500">{success}</p>}
     </form>
