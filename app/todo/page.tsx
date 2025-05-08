@@ -61,9 +61,14 @@ const korisnik=session?.user.name;
   // const filteredTodos = todos.filter(todo =>
   //   todo.title.toLowerCase().includes(filter.toLowerCase())
   // );
-  const filteredTodos = todos.filter(todo =>
-    todo.korisnik.toLowerCase().includes((korisnik ?? '').toLowerCase())
-  );
+const filteredTodos = session
+  ? todos.filter(todo =>
+      todo.korisnik.toLowerCase().includes((korisnik ?? '').toLowerCase())
+    )
+  : todos.filter(todo =>
+      todo.title.toLowerCase().includes(filter.toLowerCase())
+    );
+  // Removed unused expression
 
   // Pagination logic
   const totalPages = Math.ceil(filteredTodos.length / itemsPerPage);
