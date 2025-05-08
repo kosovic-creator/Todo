@@ -92,7 +92,7 @@ export default function AddTodoForm() {
           max={5}
         />
       </div>
-      
+
 
       <div>
         <label htmlFor="details" className="block font-medium">Detalji</label>
@@ -117,8 +117,7 @@ export default function AddTodoForm() {
       >
         Dodaj Napomenu
       </Button>
-      <Button type="button" onClick={() => setKorisnik(session?.user.name || '')}>Korisnik</Button>
-      <p>{korisnik}</p>
+
       {error && <p className="text-red-500">{error}</p>}
       {success && <p className="text-green-500">{success}</p>}
     </form>

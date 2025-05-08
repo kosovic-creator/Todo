@@ -11,14 +11,14 @@ const TodoSchema = z.object({
 
 export default TodoSchema;
 
-type Todo = {
-  id: string;
-  title: string;
-  priority: number;
-  korisnik: string;
-  done: boolean;
-  details?: string; // Added optional 'details' property
-};
+// type Todo = {
+//   id: string;
+//   title: string;
+//   priority: number;
+//   korisnik: string;
+//   done: boolean;
+//   details?: string; // Added optional 'details' property
+// };
 
 
 

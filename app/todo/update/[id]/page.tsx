@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from 'next/navigation';
-import TodoSchema  from '@/types/index';
+import TodoUpdateSchema  from '@/types/todo_update';
 import { Input } from "@/components/ui/input";
 
 
@@ -69,7 +69,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
         setSuccess('');
 
         // Validate form data using Zod
-        const result = TodoSchema.safeParse({ title, priority, details });
+        const result = TodoUpdateSchema.safeParse({ title, priority, details });
 
         if (!result.success) {
             // Map errors to display them
@@ -115,7 +115,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
                         id="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        required
+                        // required
                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Unesite naziv napomene"
                     />
@@ -128,7 +128,7 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
                         id="details"
                         value={details}
                         onChange={(e) => seDetails(e.target.value)}
-                        required
+                        // required
                         className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Unesite detalje napomene"
 
