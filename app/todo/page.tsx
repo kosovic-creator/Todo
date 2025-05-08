@@ -8,25 +8,16 @@ import { useEffect, useState, useTransition } from 'react';
 
 
 import Link from 'next/link';
-type Todo = {
-  id: number;
-  title: string;
-  details: string;
-  korisnik: string;
-  priority: string;
-  done: boolean;
-};
+
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import LoadingDots from '@/components/loading-dots';
 import { useSession } from "next-auth/react";
+import { Todo } from '@/types/todo';
 
 export default function TodoTable() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [toast, setToast] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedItemId, setSelectedItemId] = useState<string | number | null>(null);
-  const { user, setUser } = useGlobalContext();
   const [filter, setFilter] = useState('');
   const [isPending, startTransition] = useTransition();
   const { data: session } = useSession();
@@ -58,9 +49,7 @@ const korisnik=session?.user.name;
     showToast('Napomena je uspešno izmjenjena!');
   };
 
-  // const filteredTodos = todos.filter(todo =>
-  //   todo.title.toLowerCase().includes(filter.toLowerCase())
-  // );
+
 const filteredTodos = session
   ? todos.filter(todo =>
       todo.korisnik.toLowerCase().includes((korisnik ?? '').toLowerCase())
@@ -68,7 +57,7 @@ const filteredTodos = session
   : todos.filter(todo =>
       todo.title.toLowerCase().includes(filter.toLowerCase())
     );
-  // Removed unused expression
+
 
   // Pagination logic
   const totalPages = Math.ceil(filteredTodos.length / itemsPerPage);

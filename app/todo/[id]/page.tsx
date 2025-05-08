@@ -1,21 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 import { useEffect, useState } from "react";
-
 import Link from "next/link";
-// Define a custom type for Todo based on your database schema
-type Todo = {
-  id: number;
-  title: string;
-  priority: string;
-  korisnik: string;
-  done: boolean;
-  details?: string;
-};
 import { useRouter } from "next/navigation";
 import ConfirmDeleteModal from "@/components/TodoModals/ConfirmDeleteModal"; // Adjust the path based on your project structure
-
-
+import { Todo } from "@/types/todo";
 
 export default function Page({ params }: { params: Promise<{ id: string }> }) {
     const [id, setId] = useState<string | null>(null);

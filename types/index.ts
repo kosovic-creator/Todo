@@ -28,7 +28,6 @@ type Todo = {
 
 
 
-
   // const GostSchema = z.object({
 //     naziv: z.string().min(3, "Ime mora imati najmanje 3 karaktera"),
 //     age: z.number().positive("Godine moraju biti pozitivan broj"),
