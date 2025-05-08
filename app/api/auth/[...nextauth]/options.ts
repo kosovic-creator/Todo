@@ -47,7 +47,7 @@ const options: NextAuthOptions = {
           type: "text",
           placeholder: "Username...",
         },
-        password: { label: "Password", type: "password" },
+        password: { label: "Šifra", type: "password" },
       },
       authorize: async (credentials) => {
         if (!credentials) {

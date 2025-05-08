@@ -3,6 +3,8 @@ import { getServerSession } from "next-auth";
 import Link from "next/link";
 import {  HomeIcon } from "lucide-react";
 
+import SignOutButton from "./SignOutButton";
+
 
 const Nav = async () => {
   const session = await getServerSession(options);
@@ -22,11 +24,16 @@ const Nav = async () => {
           {session ? (
             <>
               <p>{session.user.name}</p>
+              <SignOutButton />
+              {/* <Link href="/login">Odjava </Link> */}
+
               {/* <p>{session.user.email}</p> */}
-              <Link href="/api/auth/signout?callbackUrl=/">Odjavi se</Link>
+              {/* <Link signOut() href="/login">Odjavi se</Link> */}
+
+
             </>
           ) : (
-            <Link href="/api/auth/signin">Prijavi se </Link>
+            <Link href="/login">Prijavi se </Link>
           )}
         </div>
       </nav>
