@@ -19,7 +19,11 @@ const CreateUser = () => {
   };
 
   return (
-    <form onSubmit={action} className="flex flex-col gap-3 w-1/2">
+    <div className="flex items-center justify-center min-h-screen" >
+
+
+
+    <form onSubmit={action} className="flex  flex-col gap-3 w-1/2">
       <h1>Create New User</h1>
       <label>Full Name</label>
       <input id="name" name="name" className="border rounded p-2 w-full" />
@@ -45,11 +49,12 @@ const CreateUser = () => {
       />
       <input
         type="submit"
-        value="Create User"
-        className="rounded p-2 bg-blue-300 hover:bg-blue-200"
+        value="Dodaj Korisnika"
+        className="rounded p-2 bg-black text-white hover:bg-gray-800 cursor-pointer"
       />
       {formState.message && <p className="text-red-500">{formState.message}</p>}
     </form>
+    </div>
   );
 };
 export default CreateUser;
