@@ -8,7 +8,7 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const { title, priority, details } = await request.json();
+    const { title, priority, details,korisnik } = await request.json();
 
     if (!title || typeof priority !== "number") {
       return NextResponse.json(
@@ -21,6 +21,7 @@ export async function POST(request: NextRequest) {
       data: {
         title,
         priority,
+        korisnik,
         details: details || "",
         done: false, // Default value for `done`
       },

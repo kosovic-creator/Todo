@@ -9,11 +9,11 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: 'ID nije prosleđen.' }, { status: 400 });
   }
 
-  const { title, priority, details, done } = await request.json();
+  const { title, priority, details,korisnik, done } = await request.json();
 
   const todo = await prisma.todo.update({
     where: { id },
-    data: { title, priority, details, done },
+    data: { title, priority, details,korisnik, done },
   });
 
   return NextResponse.json(todo);
