@@ -28,6 +28,11 @@ export default function LoginPage() {
   }
 
   return (
+    <div className='flex flex-col items-center justify-center h-screen'>
+    <h1 className='text-2xl font-bold mb-4'>Prijava</h1>
+    <p className='mb-4'>Molimo unesite svoje korisničko ime i šifru.</p>
+    <div className='w-96 p-4 border rounded shadow'>
+
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -47,6 +52,14 @@ export default function LoginPage() {
       />
       <button type="submit">Prijavi se</button>
       {error && <div style={{ color: 'red' }}>{error}</div>}
+
     </form>
+    </div>
+
+    <div className='mt-4'>
+      <p className='text-sm'>Nemate račun? <a href="/register" className='text-blue-500'>Registrirajte se</a></p>
+    </div>
+  </div>
   );
+
 }
