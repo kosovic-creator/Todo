@@ -13,6 +13,7 @@ export default function AddTodoForm() {
   const [title, setTitle] = useState('');
   const [priority, setPriority] = useState<number | ''>('');
   const [details, setDetails] = useState('');
+  const [korisnik, setKorisnik] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const router = useRouter();
@@ -47,6 +48,7 @@ export default function AddTodoForm() {
         setTitle('');
         setPriority('');
         setDetails('');
+        setKorisnik('');
         setTimeout(() => router.push('/todo'), 1000);
       } else {
         const errorData = await response.json();
@@ -85,6 +87,19 @@ export default function AddTodoForm() {
           placeholder="Unesite prioritet (1-5)"
           min={1}
           max={5}
+
+        />
+      </div>
+      <div>
+        <label htmlFor="korisnik" className="block font-medium">Korisnik</label>
+        <Input
+          id="korisnik"
+          type="text"
+          value={priority}
+          onChange={(e) => setKorisnik((e.target.value))}
+          className="border rounded p-2 w-full"
+          placeholder="Unesite Korisnika"
+
 
         />
       </div>

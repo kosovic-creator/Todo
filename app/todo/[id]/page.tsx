@@ -8,6 +8,7 @@ type Todo = {
   id: number;
   title: string;
   priority: string;
+  korisnik: string;
   done: boolean;
   details?: string;
 };
@@ -119,6 +120,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
                   <p className="p-3"><>Prioritet:</> {todo.priority}</p>
                   <p className="p-3"><>Završeno:</> {todo.done ? "Da" : "Ne"}</p>
                   <p className="p-3"><>Detalji:</> {todo.details || "N/A"}</p>
+                  <p className="p-3"><>Korisnik:</> {todo.korisnik}</p>
     <div className="flex gap-3 mt-7 w-full">
 
 

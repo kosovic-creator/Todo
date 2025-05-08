@@ -12,6 +12,7 @@ type Todo = {
   id: number;
   title: string;
   details: string;
+  korisnik: string;
   priority: string;
   done: boolean;
 };
@@ -95,6 +96,7 @@ export default function TodoTable() {
             <tr className='border-b border-gray-300 text-white'>
               <th className='p-3 text-center'>Naslov</th>
               <th className='p-3 text-center'>Detalji</th>
+              <th className='p-3 text-center'>Korisnik</th>
               <th className="p-3 text-center">Prioritet</th>
               <th className="p-3 text-left">Završeno</th>
               <th></th>
@@ -110,6 +112,7 @@ export default function TodoTable() {
                   <tr key={todo.id}>
                     <td className='p-2 text-center'>{todo.title}</td>
                     <td className='p-2 text-center'>{todo.details}</td>
+                    <td className='p-2 text-center'>{todo.korisnik}</td>
                   <td className='text-center'>{todo.priority}</td>
                   <td>
                     <input
@@ -120,11 +123,7 @@ export default function TodoTable() {
                     />
                   </td>
                   <td>
-                    {/* <div className="flex gap-2 flex-row-reverse w-full">
-                      <Link href="/todo/form" onClick={() => setUser(String(todo.id))}>
-                        <button className="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 transition">Pregled</button>
-                      </Link>
-                    </div> */}
+
                     <div className="flex gap-2 flex-row-reverse w-full">
                       <Link href={`/todo/${todo.id}`} >
                         <button className="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600 transition">Pregled</button>
