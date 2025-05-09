@@ -3,6 +3,7 @@
 
 import { useState } from "react"; // Corrected import
 import { createUserAction } from "@/actions";
+import { Label } from "@/components/ui/label";
 
 const CreateUser = () => {
   const [formState, setFormState] = useState({ message: "" }); // Updated hook
@@ -24,23 +25,23 @@ const CreateUser = () => {
 
 
     <form onSubmit={action} className="flex  flex-col gap-3 w-1/2">
-      <h1>Create New User</h1>
-      <label>Full Name</label>
+      <h1>Dodaj novog Korisnika</h1>
+      <Label>Ime i Prezime</Label>
       <input id="name" name="name" className="border rounded p-2 w-full" />
 
-      <label>Username</label>
+      <Label>Korisnik</Label>
       <input
         id="username"
         name="username"
         className="border rounded p-2 w-full"
       />
-      <label>Email</label>
+      <Label>Email</Label>
       <input
         id="email"
         name="email"
         className="border rounded p-2 w-full"
       />
-      <label>Password</label>
+      <Label>Šifra</Label>
       <input
         id="password"
         name="password"

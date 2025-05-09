@@ -1,7 +1,7 @@
 import options from "@/app/api/auth/[...nextauth]/options";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
-// import {  HomeIcon } from "lucide-react";
+ import {  HomeIcon } from "lucide-react";
 
 import SignOutButton from "./SignOutButton";
 
@@ -12,7 +12,7 @@ const Nav = async () => {
   return (
     <header className="bg-black text-white">
       <nav className="flex justify-between items-center w-full px-10 py-4">
-      {/* <Link href="/"><HomeIcon/></Link> */}
+       <Link href="/"><HomeIcon/></Link>
       {/* {session ? <Link href="/todo">Podsjetnik</Link> : null}
         <div className="flex gap-10">
           {session?.user.role == "ADMIN" && (
@@ -33,7 +33,7 @@ const Nav = async () => {
 
             </>
           ) : (
-            <Link href="/auth/login">Prijavi se </Link>
+            <Link href="/auth/login"> </Link>
           )}
       </nav>
     </header>

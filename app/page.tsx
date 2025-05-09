@@ -1,6 +1,7 @@
 
 'use client';
 import { useSession, signIn, signOut } from "next-auth/react";
+import LoginPage from "./auth/login/page";
 export default function Home() {
   const { data: session } = useSession();
 
@@ -14,8 +15,8 @@ export default function Home() {
   }
   return (
     <>
-      Not signed in
-      <button onClick={() => signIn()}>Sign in</button>
+     <LoginPage />
+     
     </>
   );
 }
