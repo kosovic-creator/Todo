@@ -22,7 +22,11 @@ const Nav = async () => {
 
           {session ? (
             <>
-              <p>{session.user.name}</p>
+           <div className="flex flex-col gap-2">
+
+
+              <p className=" p-1">korisnik: {session.user.name}</p>
+           </div>
 
               <SignOutButton />
               {/* <Link href="/login">Odjava </Link> */}

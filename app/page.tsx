@@ -9,15 +9,15 @@ export default function Home() {
   if (session) {
     return (
       <>
-        {session.user?.email}
-        <button onClick={() => signOut()}>Sign out</button>
+        {/* {session.user?.email} */}
+        {/* <button onClick={() => signOut()}>Sign out</button> */}
       </>
     );
   }
   return (
     <>
      <LoginPage />
-     
+
     </>
   );
 }

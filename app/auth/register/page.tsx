@@ -24,7 +24,7 @@ const CreateUser = () => {
 
 
 
-    <form onSubmit={action} className="flex  flex-col gap-3 w-100 p-10 rounded shadow border-2 border-gray-400">
+    <form onSubmit={action} className="flex  flex-col gap-3 w-100 p-10  border-gray-100 rounded shadow ">
       <h1>Dodaj novog Korisnika</h1>
       <Label>Ime i Prezime</Label>
       <input id="name" name="name" className="border rounded p-2 w-full" />

@@ -33,11 +33,11 @@ export default function LoginPage() {
     <div className='flex flex-col items-center justify-center h-screen'>
       <h1 className='text-2xl font-bold mb-4'>Prijava</h1>
       <p className='mb-4'>Molimo unesite svoje korisničko ime i šifru.</p>
-      <div className='w-96 p-4 border rounded shadow'>
+      <div className='w-96 p-4 border-2 border-gray-100 rounded shadow '>
 
         <form onSubmit={handleSubmit}>
           <Input
-            className='p-2 mb-2'
+             className="mt-1 block w-full border border-gray-500 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-3"
             autoComplete="username"
             autoFocus
             id="username"
@@ -49,7 +49,7 @@ export default function LoginPage() {
             required
           />
           <Input
-            className='p-2 mb-2'
+           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 mb-3"
             autoComplete="current-password"
             id="password"
             autoFocus
