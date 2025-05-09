@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import GitHubProvider from "next-auth/providers/github";
 // import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NextAuthOptions } from "next-auth";
+import { PrismaAdapter } from '@auth/prisma-adapter';
 
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
@@ -10,7 +12,7 @@ const options: NextAuthOptions = {
   providers: [
     GitHubProvider({
       profile(profile) {
-      
+
         let userRole = "GitHub User";
         if (profile?.email == "drasko.kosovic@icloud.com") {
           userRole = "ADMIN";
