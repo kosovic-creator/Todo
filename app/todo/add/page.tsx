@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import TodoSchema  from '@/types/index'; // Import your Zod schema from the appropriate file
+import { Label } from "@/components/ui/label";
 
 
 export default function AddTodoForm() {
@@ -60,11 +61,11 @@ export default function AddTodoForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" w-full max-w-md mx-auto p-4 bg-white shadow-md rounded">
+    <form onSubmit={handleSubmit} className=" w-full max-w-md mx-auto p-4 bg-white  border-gray-100 rounded">
       <h1 className="text-2xl font-bold-3 p-6 text-center">Dodaj Napomenu</h1>
 
       <div>
-        <label htmlFor="title" className="block font-medium">Zadatak</label>
+        <Label htmlFor="title" className="block font-medium p-2 border-gray-100">Zadatak</Label>
         <Input
           id="title"
           type="text"
@@ -77,7 +78,7 @@ export default function AddTodoForm() {
       </div>
 
       <div>
-        <label htmlFor="priority" className="block font-medium">Prioritet</label>
+        <Label htmlFor="priority" className="block font-medium p-2  border-gray-100">Prioritet</Label>
         <Input
           id="priority"
           type="number"
@@ -95,7 +96,7 @@ export default function AddTodoForm() {
 
 
       <div>
-        <label htmlFor="details" className="block font-medium">Detalji</label>
+        <Label htmlFor="details" className="block font-medium p-2  border-gray-100">Detalji</Label>
         <Textarea
           id="details"
           value={details}

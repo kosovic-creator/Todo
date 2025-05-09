@@ -71,7 +71,7 @@ const filteredTodos = session
   return (
     <>
 
-      <div className='container mx-auto p-0 w-full'>
+      <div className='  mx-auto p-0 w-full'>
         <div className='text-gray-500 p-0 flex justify-between items-center w-full'>
           <div className="flex items-center relative w-full">
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -94,7 +94,7 @@ const filteredTodos = session
             <tr className='border-b border-gray-300 text-white'>
               <th className='p-3 text-center'>Naslov</th>
               <th className='p-3 text-center'>Detalji</th>
-              <th className='p-3 text-center'>Korisnik</th>
+
               <th className="p-3 text-center">Prioritet</th>
               <th className="p-3 text-left">Završeno</th>
               <th></th>
@@ -110,7 +110,7 @@ const filteredTodos = session
                   <tr key={todo.id}>
                     <td className='p-2 text-center'>{todo.title}</td>
                     <td className='p-2 text-center'>{todo.details}</td>
-                    <td className='p-2 text-center'>{todo.korisnik}</td>
+
                   <td className='text-center'>{todo.priority}</td>
                   <td>
                     <input
