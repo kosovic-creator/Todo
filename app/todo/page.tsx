@@ -152,12 +152,12 @@ const filteredTodos = session
           </button>
         </div>
       </div>
-      <footer className='flex justify-centar items-center p-4 bg-gray-100'>
+      <footer className="flex justify-center items-center p-4 bg-gray-100">
+  <a>
+    Procenat završenih obaveza: {Math.round((brojKompletiranih / brojZapisa) * 100)}%
+  </a>
+</footer>
 
-        <a className=' ml-80  mr-80'>Završeno: {Math.round((brojKompletiranih / brojZapisa) * 100)}%</a>
-
-
-      </footer>
     </>
   );
 }
