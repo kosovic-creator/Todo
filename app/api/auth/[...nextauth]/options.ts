@@ -1,4 +1,4 @@
-// import GitHubProvider from "next-auth/providers/github";
+import GitHubProvider from "next-auth/providers/github";
 // import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NextAuthOptions } from "next-auth";
@@ -8,22 +8,22 @@ import bcrypt from "bcryptjs";
 
 const options: NextAuthOptions = {
   providers: [
-    // GitHubProvider({
-    //   profile(profile) {
-    //     //console.log("Profile GitHub: ", profile);
-    //     let userRole = "GitHub User";
-    //     if (profile?.email == "drasko.kosovic@icloud.com") {
-    //       userRole = "ADMIN";
-    //     }
+    GitHubProvider({
+      profile(profile) {
+      
+        let userRole = "GitHub User";
+        if (profile?.email == "drasko.kosovic@icloud.com") {
+          userRole = "ADMIN";
+        }
 
-    //     return {
-    //       ...profile,
-    //       role: userRole,
-    //     };
-    //   },
-    //   clientId: process.env.GITHUB_CLIENT_ID!,
-    //   clientSecret: process.env.GITHUB_CLIENT_SECRET!,
-    // }),
+        return {
+          ...profile,
+          role: userRole,
+        };
+      },
+      clientId: process.env.GITHUB_CLIENT_ID!,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET!,
+    }),
     // GoogleProvider({
     //   profile(profile) {
     //     //console.log("Profile Google: ", profile);
