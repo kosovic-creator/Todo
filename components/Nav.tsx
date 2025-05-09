@@ -13,11 +13,11 @@ const Nav = async () => {
     <header className="bg-black text-white">
       <nav className="flex justify-between items-center w-full px-10 py-4">
       {/* <Link href="/"><HomeIcon/></Link> */}
-      {session ? <Link href="/todo">Podsjetnik</Link> : null}
+      {/* {session ? <Link href="/todo">Podsjetnik</Link> : null}
         <div className="flex gap-10">
           {session?.user.role == "ADMIN" && (
             <Link href="/CreateUser">Dodaj Korisnika</Link>
-          )}
+          )} */}
 
 
           {session ? (
@@ -33,9 +33,8 @@ const Nav = async () => {
 
             </>
           ) : (
-            <Link href="/login">Prijavi se </Link>
+            <Link href="/auth/login">Prijavi se </Link>
           )}
-        </div>
       </nav>
     </header>
   );

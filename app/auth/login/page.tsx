@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -34,7 +36,11 @@ export default function LoginPage() {
     <div className='w-96 p-4 border rounded shadow'>
 
     <form onSubmit={handleSubmit}>
-      <input
+      <Input
+className='p-2 mb-4'
+        autoComplete="username"
+        autoFocus
+        id="username"
         type="text"
         name="username"
         placeholder="Korisničko ime"
@@ -42,7 +48,11 @@ export default function LoginPage() {
         onChange={e => setUsername(e.target.value)}
         required
       />
-      <input
+      <Input
+      className='p-2 mb-4'
+        autoComplete="current-password"
+        id="password"
+        autoFocus
         type="password"
         name="password"
         placeholder="Šifra"
@@ -50,14 +60,14 @@ export default function LoginPage() {
         onChange={e => setPassword(e.target.value)}
         required
       />
-      <button type="submit">Prijavi se</button>
+      <Button className='bg-black text-white w-full' type="submit">Prijavi se</Button>
       {error && <div style={{ color: 'red' }}>{error}</div>}
 
     </form>
     </div>
 
     <div className='mt-4'>
-      <p className='text-sm'>Nemate račun? <a href="/register" className='text-blue-500'>Registrirajte se</a></p>
+      <p className='text-sm'>Nemate račun? <a href="/auth/register" className='text-blue-500'>Registrirajte se</a></p>
     </div>
   </div>
   );
