@@ -105,10 +105,10 @@ export default function UpdatePage({ params }: { params: Promise<{ id: string }>
     };
 
     return (
-        <div className=" w-full max-w-md mx-auto p-4 bg-white shadow-md rounded">
-            <h4  className="text-2xl font-bold-3 p-6 text-center">Izmjeni</h4>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="mb-4">
+        <div className=" w-full max-w-md mx-auto p-4 bg-white  rounded">
+            <h4  className="text-2xl font-bold-3 p-6 text-center ">Izmjeni</h4>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 border-2 border-gray-100 rounded pl-4 pr-4">
+                <div className="mb-4 ">
                     <label htmlFor="title" className="block text-sm font-medium text-gray-700">Zadatak:</label>
                     <Input
                         type="text"

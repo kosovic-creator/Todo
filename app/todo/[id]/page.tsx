@@ -99,7 +99,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   return (
     <div className="w-full max-w-md mx-auto p-4 bg-white">
       <div className=" w-full mx-auto p-4 bg-white ">
-        <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-4 bg-white shadow-md rounded pl-4 pr-4 bg-gray-50">
+        <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-4 bg-white border-2 border-gray-100 rounded pl-4 pr-4">
           {todo && (
             <div className="flex-col text-left p-2 ">
               <h1 className="text-2xl font-bold-1 p-2 text-left">Detalji Napomene</h1>
