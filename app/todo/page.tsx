@@ -154,7 +154,7 @@ const filteredTodos = session
       </div>
       <footer className='flex justify-centar items-center p-4 bg-gray-100'>
 
-        <a className='justify-centar ml-80'>Procenat završenih zadataka: {Math.round((brojKompletiranih / brojZapisa) * 100)}%</a>
+        <a className=' ml-80  mr-80'>Završeno: {Math.round((brojKompletiranih / brojZapisa) * 100)}%</a>
 
 
       </footer>
