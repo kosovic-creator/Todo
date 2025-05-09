@@ -10,8 +10,8 @@ const Nav = async () => {
   const session = await getServerSession(options);
   //console.log(session);
   return (
-    <header className="bg-black text-white w-full">
-      <nav className="flex justify-between items-center w-full px-10 py-4">
+    <header className="bg-black text-white w-full p-5">
+      <nav >
        <Link href="/"><HomeIcon/></Link>
       {/* {session ? <Link href="/todo">Podsjetnik</Link> : null}
         <div className="flex gap-10">
@@ -29,12 +29,7 @@ const Nav = async () => {
            </div>
 
               <SignOutButton />
-              {/* <Link href="/login">Odjava </Link> */}
-
-              {/* <p>{session.user.email}</p> */}
-              {/* <Link signOut() href="/login">Odjavi se</Link> */}
-
-
+            
             </>
           ) : (
             <Link href="/auth/login"> </Link>
